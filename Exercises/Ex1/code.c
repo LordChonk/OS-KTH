@@ -9,7 +9,7 @@ char global [] = "This is a global string";
 
 int main() {
 
-        int pid = getpid();
+    int pid = getpid();
     foo:
     printf("process id: %d\n", pid);
     printf("global string: %p\n", &global);
@@ -21,6 +21,6 @@ int main() {
     sprintf(command, "cat /proc/%d/maps", pid);
     system(command);
 
- //fgetc(stdin);
+    //fgetc(stdin);
     return 0;
 }
