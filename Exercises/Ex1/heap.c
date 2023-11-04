@@ -26,6 +26,7 @@ void foo(unsigned long *stop){
 int main() {
     long *heap = (unsigned long*) calloc(40,
      sizeof (unsigned long));
+
     printf("heap[2]: 0x%lx\n", heap[2]);
     printf("heap[1]: 0x%lx\n", heap[1]);
     printf("heap[0]: 0x%lx\n", heap[0]);
@@ -33,6 +34,7 @@ int main() {
     printf("heap[-2]: 0x%lx\n", heap[-2]);
 
     free(heap);
+
     printf("heap[2]: 0x%lx\n", heap[2]);
     printf("heap[1]: 0x%lx\n", heap[1]);
     printf("heap[0]: 0x%lx\n", heap[0]);
@@ -40,7 +42,7 @@ int main() {
     printf("heap[-2]: 0x%lx\n", heap[-2]);
 
     int pid = getpid();
-    unsigned long p = 0x1;
+    //unsigned long p = 0x1;
 
     /*foo(&p);
 
@@ -62,8 +64,8 @@ int main() {
     *heap = 0x63;
     printf("or is it pointing to: 0x%x\n", *foo);*/
 
-    printf("the heap variable at: %p\n", &heap);
-    printf("pointing to: %p\n", heap);
+    //printf("the heap variable at: %p\n", &heap);
+    //printf("pointing to: %p\n", heap);
 
     printf("\n\n /proc/%d/maps \n\n", pid);
     char command[50];
