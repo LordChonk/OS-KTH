@@ -5,4 +5,5 @@ The first lab assignment is to write code to illustrate the command ls / | wc -1
 This information is taken directly from the task instructions found on the course page.
 
 Ex1: Done
+
 Ex2: Done (messy folder... sorry)
