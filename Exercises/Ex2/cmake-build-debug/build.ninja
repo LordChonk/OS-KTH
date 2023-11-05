@@ -61,6 +61,12 @@ build CMakeFiles/Ex2.dir/zombie.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adria
   OBJECT_DIR = CMakeFiles/Ex2.dir
   OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
 
+build CMakeFiles/Ex2.dir/dolly2.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/dolly2.c || cmake_object_order_depends_target_Ex2
+  DEP_FILE = CMakeFiles/Ex2.dir/dolly2.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Ex2
@@ -69,7 +75,7 @@ build CMakeFiles/Ex2.dir/zombie.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adria
 #############################################
 # Link the executable Ex2
 
-build Ex2: C_EXECUTABLE_LINKER__Ex2_Debug CMakeFiles/Ex2.dir/dolly.c.o CMakeFiles/Ex2.dir/zombie.c.o
+build Ex2: C_EXECUTABLE_LINKER__Ex2_Debug CMakeFiles/Ex2.dir/dolly.c.o CMakeFiles/Ex2.dir/zombie.c.o CMakeFiles/Ex2.dir/dolly2.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Ex2.dir
   POST_BUILD = :
