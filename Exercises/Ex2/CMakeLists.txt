@@ -10,4 +10,7 @@ add_executable(Ex2
         part3.c
         group.c
         orphan.c
-    sessions.c)
+    sessions.c
+        boba.c
+        jango.c
+)

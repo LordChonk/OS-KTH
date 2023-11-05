@@ -79,8 +79,26 @@ build CMakeFiles/Ex2.dir/group.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian
   OBJECT_DIR = CMakeFiles/Ex2.dir
   OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
 
-build CMakeFiles/Ex2.dir/orphans.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/orphans.c || cmake_object_order_depends_target_Ex2
-  DEP_FILE = CMakeFiles/Ex2.dir/orphans.c.o.d
+build CMakeFiles/Ex2.dir/orphan.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/orphan.c || cmake_object_order_depends_target_Ex2
+  DEP_FILE = CMakeFiles/Ex2.dir/orphan.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
+
+build CMakeFiles/Ex2.dir/sessions.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/sessions.c || cmake_object_order_depends_target_Ex2
+  DEP_FILE = CMakeFiles/Ex2.dir/sessions.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
+
+build CMakeFiles/Ex2.dir/boba.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/boba.c || cmake_object_order_depends_target_Ex2
+  DEP_FILE = CMakeFiles/Ex2.dir/boba.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
+
+build CMakeFiles/Ex2.dir/jango.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex2/jango.c || cmake_object_order_depends_target_Ex2
+  DEP_FILE = CMakeFiles/Ex2.dir/jango.c.o.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Ex2.dir
   OBJECT_FILE_DIR = CMakeFiles/Ex2.dir
@@ -93,7 +111,7 @@ build CMakeFiles/Ex2.dir/orphans.c.o: C_COMPILER__Ex2_unscanned_Debug /home/adri
 #############################################
 # Link the executable Ex2
 
-build Ex2: C_EXECUTABLE_LINKER__Ex2_Debug CMakeFiles/Ex2.dir/dolly.c.o CMakeFiles/Ex2.dir/zombie.c.o CMakeFiles/Ex2.dir/dolly2.c.o CMakeFiles/Ex2.dir/part3.c.o CMakeFiles/Ex2.dir/group.c.o CMakeFiles/Ex2.dir/orphans.c.o
+build Ex2: C_EXECUTABLE_LINKER__Ex2_Debug CMakeFiles/Ex2.dir/dolly.c.o CMakeFiles/Ex2.dir/zombie.c.o CMakeFiles/Ex2.dir/dolly2.c.o CMakeFiles/Ex2.dir/part3.c.o CMakeFiles/Ex2.dir/group.c.o CMakeFiles/Ex2.dir/orphan.c.o CMakeFiles/Ex2.dir/sessions.c.o CMakeFiles/Ex2.dir/boba.c.o CMakeFiles/Ex2.dir/jango.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Ex2.dir
   POST_BUILD = :
