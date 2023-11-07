@@ -7,3 +7,5 @@ This information is taken directly from the task instructions found on the cours
 Ex1: Done
 
 Ex2: Done (messy folder... sorry)
+
+Ex3: Done
