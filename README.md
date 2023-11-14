@@ -12,6 +12,5 @@ Ex2: Done (messy folder... sorry)
 
 Ex3: Done
 
-Ex4: Don
+Ex4: Done
 
-Lab1: Done (along with other students, group work)e
