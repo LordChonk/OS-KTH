@@ -61,6 +61,30 @@ build CMakeFiles/Ex5.dir/swap.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/
   OBJECT_DIR = CMakeFiles/Ex5.dir
   OBJECT_FILE_DIR = CMakeFiles/Ex5.dir
 
+build CMakeFiles/Ex5.dir/swap2.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex5/swap2.c || cmake_object_order_depends_target_Ex5
+  DEP_FILE = CMakeFiles/Ex5.dir/swap2.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex5.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex5.dir
+
+build CMakeFiles/Ex5.dir/list.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex5/list.c || cmake_object_order_depends_target_Ex5
+  DEP_FILE = CMakeFiles/Ex5.dir/list.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex5.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex5.dir
+
+build CMakeFiles/Ex5.dir/clist.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex5/clist.c || cmake_object_order_depends_target_Ex5
+  DEP_FILE = CMakeFiles/Ex5.dir/clist.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex5.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex5.dir
+
+build CMakeFiles/Ex5.dir/slist.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/KTH/OS-KTH/Exercises/Ex5/slist.c || cmake_object_order_depends_target_Ex5
+  DEP_FILE = CMakeFiles/Ex5.dir/slist.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Ex5.dir
+  OBJECT_FILE_DIR = CMakeFiles/Ex5.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Ex5
@@ -69,7 +93,7 @@ build CMakeFiles/Ex5.dir/swap.c.o: C_COMPILER__Ex5_unscanned_Debug /home/adrian/
 #############################################
 # Link the executable Ex5
 
-build Ex5: C_EXECUTABLE_LINKER__Ex5_Debug CMakeFiles/Ex5.dir/peterson.c.o CMakeFiles/Ex5.dir/swap.c.o
+build Ex5: C_EXECUTABLE_LINKER__Ex5_Debug CMakeFiles/Ex5.dir/peterson.c.o CMakeFiles/Ex5.dir/swap.c.o CMakeFiles/Ex5.dir/swap2.c.o CMakeFiles/Ex5.dir/list.c.o CMakeFiles/Ex5.dir/clist.c.o CMakeFiles/Ex5.dir/slist.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Ex5.dir
   POST_BUILD = :

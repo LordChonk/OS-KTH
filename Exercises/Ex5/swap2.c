@@ -1,26 +1,46 @@
 //
 // Created by adrian on 2023-11-15.
 //
-#include <stdlib.h>
-#include <pthread.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <linux/futex.h>
+#include <sys/syscall.h>
+#include <stdlib.h>
 #include <sched.h>
+#include <pthread.h>
 
 //init
-volatile int ct = 0;
+volatile int ct;
 
-volatile int global = 0;
+volatile int mutex;
 
-int try(volatile int *mutex){
-    return __sync_val_compare_and_swap(mutex, 0, 1);
+
+int futex_wait(volatile int *futexp){
+    return syscall(SYS_futex, futexp, FUTEX_WAIT, 1, NULL, NULL, 0);
 }
-//lock and unlock
-int lock(volatile int *mutex){
-    while(try(mutex) != 0);
-    }; //spin
 
-void unlock(volatile int *mutex){
-    *mutex = 0;
+void futex_wake(volatile int *futexp){
+    syscall(SYS_futex, futexp, FUTEX_WAKE, 1, NULL, NULL, 0);
+}
+
+int try(volatile int *lock){
+    __sync_val_compare_and_swap(lock, 0, 1);
+}
+
+
+//lock and unlock
+int lock(volatile int *lock){
+    int susp = 0;
+    while(try(lock) != 0){
+        susp++;
+        futex_wait(lock);
+}
+return susp;
+}
+
+void unlock(volatile int *lock){
+    *lock = 0;
+    futex_wait(lock);
 }
 
 //describe threads
@@ -30,20 +50,22 @@ void *increment(void *arg){
     int inc =((args*)arg)->inc;
     int id = ((args*)arg) ->id;
     volatile int *mutex = ((args*)arg) -> mutex;
+    int susp = 0;
     printf("start: %d\n", id);
 
     for(int i = 0; i < inc; i++){
-        lock(mutex);
+        susp = susp + lock(mutex);
         ct++;
         unlock(mutex);
     }
+    printf("done %d, suspended %d times\n", id, susp);
 }
 
 
 int main(int argc, char *argv[]) {
 
     if(argc != 2){
-        printf("usage swap <inc>\n");
+        printf("usage futex <inc>\n");
         exit(0);
     }
 
@@ -58,8 +80,8 @@ int main(int argc, char *argv[]) {
     one_args.id = 1;
     two_args.id = 2;
 
-    one_args.mutex = &global;
-    two_args.mutex = &global;
+    one_args.mutex = &mutex;
+    two_args.mutex = &mutex;
 
     pthread_create(&one_p, NULL, increment, &one_args);
     pthread_create(&two_p, NULL, increment, &two_args);
@@ -70,3 +92,4 @@ int main(int argc, char *argv[]) {
     return 0;
 
 }
+

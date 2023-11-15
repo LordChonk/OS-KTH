@@ -5,4 +5,8 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(Ex5 peterson.c
         swap.c
+        swap2.c
+        list.c
+        clist.c
+        slist.c
 )
