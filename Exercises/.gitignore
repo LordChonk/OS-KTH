@@ -1,0 +1,6 @@
+.DS*
+.idea*
+*.pyc
+.vscode
+*/target**
+*.lock 
