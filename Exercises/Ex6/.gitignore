@@ -1,0 +1,7 @@
+.DS*
+.idea*
+*.pyc
+.vscode
+*/target*
+*.lock 
+/cmake-build-debug*
