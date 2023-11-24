@@ -6,8 +6,13 @@
 #include <math.h>
 #include <assert.h>
 
+#define SAMPLES 20
 #define HIGH 20
 #define FREQ 80
+
+typedef struct pte {
+    int present;
+} pte;
 
 void init(int *sequence, int refs, int pages) {
     int high = (int) (pages * ((float) HIGH / 100));
@@ -15,19 +20,69 @@ void init(int *sequence, int refs, int pages) {
     for (int i = 0; i < refs; i++){
         if(rand() % 100 < FREQ)
     sequence[i] = rand() % high;
-    else 
+    else
     sequence[i] = high + rand() % (pages - high);
 }
 }
-int main(int argc, char *argv[]) {
-/* could be command line arguments */
-    int refs = 10;
-    int pages = 100;
-    int *sequence = (int *) malloc(refs * sizeof(int));
-    init(sequence, refs, pages);
-/* a small experiment to show that it works */
-    for (int i = 1; i < refs; i++)
-        printf(", %d", sequence[i]);
-    printf("\n");
-    return 0;
+void clear_page_table(pte *page_table, int pages) {
+    for (int i = 0; i < pages; i++)
+        page_table[i].present = 0;
 }
+
+int simulate(int *seq, pte *table, int refs, int frames, int pages) {
+    int hits = 0;
+    int allocated = 0;
+    for (int i = 0; i < refs; i++) {
+        int next = seq[i];
+        pte *entry = &table[next];
+        if (entry->present == 1) {
+            hits++;
+        } else {
+            if (allocated < frames) {
+                allocated++;
+                entry->present = 1;
+            } else {
+                pte *evict;
+                do {
+                    int rnd = rand() % pages;
+                    evict = &table[rnd];
+                } while (evict->present != 1);
+
+                evict->present = 0;
+                entry->present = 1;
+            }
+        }
+    }
+    return hits;
+}
+
+    int main(int argc, char *argv[]) {
+        int refs = 1000; //higher number gives better results
+        int pages = 100;
+
+        int *sequence = (int *) malloc(refs * sizeof(int));
+        init(sequence, refs, pages);
+        pte *table = (pte *) malloc(pages * sizeof(pte));
+
+/* a small experiment to show that it works */
+        /*for (int i = 1; i < refs; i++)
+            printf(", %d", sequence[i]);
+        printf("\n");*/
+        printf("# This is a benchmark of random replacement\n");
+        printf("# %d page references\n", refs);
+        printf("# %d pages \n", pages);
+        printf("#\n#\n#frames\tratio\n");
+/* frames is the size of the memory in frames */
+        int frames;
+        int incr = pages / SAMPLES;
+
+        for (frames = incr; frames <= pages; frames += incr) {
+            /* clear page tables entries */
+            clear_page_table(table, pages);
+            int hits = simulate(sequence, table, refs, frames, pages);
+            float ratio = (float) hits / refs;
+            printf("%d\t%.2f\n", frames, ratio);
+        }
+        return 0;
+    }
+
