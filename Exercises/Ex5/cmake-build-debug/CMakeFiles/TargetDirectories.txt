@@ -1,3 +1,0 @@
-/home/adrian/KTH/OS-KTH/Exercises/Ex5/cmake-build-debug/CMakeFiles/Ex5.dir
-/home/adrian/KTH/OS-KTH/Exercises/Ex5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/adrian/KTH/OS-KTH/Exercises/Ex5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
