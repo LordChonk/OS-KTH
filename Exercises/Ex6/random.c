@@ -5,9 +5,19 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
+
+#define HIGH 20
+#define FREQ 80
+
 void init(int *sequence, int refs, int pages) {
-    for (int i = 0; i<refs; i++)
-        sequence[i] = rand() % pages;
+    int high = (int) (pages * ((float) HIGH / 100));
+
+    for (int i = 0; i < refs; i++){
+        if(rand() % 100 < FREQ)
+    sequence[i] = rand() % high;
+    else 
+    sequence[i] = high + rand() % (pages - high);
+}
 }
 int main(int argc, char *argv[]) {
 /* could be command line arguments */
